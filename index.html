@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Password Secure Gmbh</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="icon" type="image/x-icon"  href="./logo/logo_cropped_transparent.svg">
+   </head>
+   <body>
+      <div id="logo"><img alt="logo" src="./logo/high-resolution-logo-grayscale-cropped.svg "></div>
+      <div id="app">
+         <div id="disclaimer" class="card mb1">
+            <p>Kurzer Hinweis vorab: In dieser Schulung können vereinzelt kleine Darstellungsfehler bei gewissen Fehlermeldungen oder Hinweistexten auftreten. Die Funktionalität der Schulung ist davon <strong>nicht betroffen</strong> – alle Aufgaben, Entscheidungen und Interaktionen funktionieren einwandfrei.</p>
+            <p>Wir haben die Schulung ausgiebig getestet und die bekannten Bugs behoben. Sollten Sie dennoch etwas Ungewöhnliches bemerken, können Sie die entsprechende Stelle einfach ignorieren und normal weiterfahren – Ihr Lernfortschritt wird dadurch nicht beeinflusst.</p>
+            <p>Vielen Dank für Ihr Verständnis und nun viel Freude beim Durchlaufen der Schulung!</p>
+            <br>
+            <br>
+            <p>Diese Schulung richtet sich speziell an junge, technikaffine Mitarbeitende im Alter von 15 bis 30 Jahren. Ihr wisst bereits, was Passwörter sind und warum sie grundsätzlich wichtig sind – doch im Alltag fehlt oft das Bewusstsein dafür, wie entscheidend wirklich sichere Passwörter für den Schutz von Daten und Systemen sind. Gleichzeitig seid ihr keine Security-Spezialistinnen oder -Spezialisten, sondern nutzt digitale Tools pragmatisch und effizient. </p>
+            <p>Genau hier setzt diese Schulung an: Gemeinsam schauen wir uns an, warum einfache oder wiederverwendete Passwörter ein echtes Risiko darstellen und wie ihr mit wenig Aufwand deutlich mehr Sicherheit erreichen könnt. </p>
+            <p>Ihr werdet aktiv eingebunden, löst Aufgaben, trefft Entscheidungen und erlebt direkt die Auswirkungen eures Handelns. So lernt ihr nicht nur theoretisch, sondern durch eigenes Ausprobieren. </p>
+            <p>Ziel ist es, euch praktische und leicht umsetzbare Strategien an die Hand zu geben, damit ihr eure digitalen Zugänge künftig sicherer gestaltet – im Beruf wie auch privat. </p>
+            Lasst uns gemeinsam starten! 🚀</p>
+         </div>
+         <!-- INTRO -->
+         <div id="screen-intro" class="screen active">
+            <div class="hero">
+               <div class="hero-icon">🛡️</div>
+               <h1>Operation Password Shield</h1>
+               <p class="muted">Eine interaktive Sicherheitsschulung der Password Secure Gmbh</p>
+            </div>
+            <div class="card mb1">
+               <div class="alert alert-danger">
+                  <strong>Sicherheitsalarm:</strong> Password Secure Gmbh wurde letzte Nacht gehackt. Ursache: ein schwaches Passwort. Du wirst als Security Agent rekrutiert, um die 5 Schwachstellen zu schliessen.
+               </div>
+               <p>In dieser Schulung durchläufst du 5 Level mit interaktiven Aufgaben. Sammle Punkte und steige im Rang auf.</p>
+               <div class="stat-grid">
+                  <div class="stat-card">
+                     <div class="stat-val">5</div>
+                     <div class="stat-lbl">Level</div>
+                  </div>
+                  <div class="stat-card">
+                     <div class="stat-val">~25</div>
+                     <div class="stat-lbl">Minuten</div>
+                  </div>
+                  <div class="stat-card">
+                     <div class="stat-val">1000</div>
+                     <div class="stat-lbl">Punkte max.</div>
+                  </div>
+               </div>
+            </div>
+            <div class="card mb1">
+               <h3>Dein Rang-System</h3>
+               <div class="rank-row"><span class="badge badge-blue">0–200</span><span class="rank-label">Rookie Agent</span></div>
+               <div class="rank-row"><span class="badge badge-amber">201–400</span><span class="rank-label">Field Agent</span></div>
+               <div class="rank-row"><span class="badge badge-purple">401–600</span><span class="rank-label">Senior Investigator</span></div>
+               <div class="rank-row"><span class="badge badge-teal">601–800</span><span class="rank-label">Security Specialist</span></div>
+               <div class="rank-row"><span class="badge badge-dark">801–1000</span><span class="rank-label">Elite Shield Commander</span></div>
+            </div>
+            <div class="center">
+               <button class="btn btn-primary" onclick="showMap()">Mission starten →</button>
+            </div>
+         </div>
+         <!-- MAP -->
+         <div id="screen-map" class="screen">
+            <div class="hud">
+               <div><span class="hud-label">Punkte</span><br><span id="map-pts" class="hud-val">0</span></div>
+               <div class="center"><span class="hud-label">Rang</span><br><span id="map-rank" class="hud-val-sm">Rookie Agent</span></div>
+               <div class="right"><span class="hud-label">Badges</span><br><span id="map-badges" class="hud-val-sm">—</span></div>
+            </div>
+            <div class="progress-bar-wrap">
+               <div class="progress-bar-fill" id="map-progress" style="width:0%"></div>
+            </div>
+            <p class="muted right" style="font-size:12px;margin-bottom:1rem" id="map-progress-txt">0 / 5 Level abgeschlossen</p>
+            <div class="level-grid" id="level-grid"></div>
+         </div>
+         <!-- LEVEL -->
+         <div id="screen-level" class="screen">
+            <div class="hud">
+               <div><span class="hud-label">Punkte</span><br><span id="lv-pts" class="hud-val">0</span></div>
+               <div id="lv-title-hud" class="hud-title"></div>
+               <button class="btn btn-sm" onclick="showMap()">← Karte</button>
+            </div>
+            <div id="level-content"></div>
+         </div>
+         <!-- END -->
+         <div id="screen-end" class="screen">
+            <div class="hero">
+               <div class="hero-icon">🏆</div>
+               <h1>Mission abgeschlossen!</h1>
+            </div>
+            <div class="card mb1">
+               <div class="stat-grid">
+                  <div class="stat-card">
+                     <div class="stat-val" id="end-pts">0</div>
+                     <div class="stat-lbl">Punkte</div>
+                  </div>
+                  <div class="stat-card">
+                     <div class="stat-val" id="end-rank">—</div>
+                     <div class="stat-lbl">Rang</div>
+                  </div>
+                  <div class="stat-card">
+                     <div class="stat-val" id="end-badges">0</div>
+                     <div class="stat-lbl">Badges</div>
+                  </div>
+               </div>
+            </div>
+            <div class="card mb1">
+               <h3>Deine Abzeichen</h3>
+               <div id="end-badge-list" class="badge-list"></div>
+            </div>
+            <div class="card mb1">
+               <h3>Stärken &amp; Verbesserungspotenzial</h3>
+               <div id="end-feedback"></div>
+            </div>
+            <div class="center">
+               <button class="btn btn-primary" onclick="restart()">Schulung wiederholen →</button>
+            </div>
+         </div>
+      </div>
+      <script src="app.js"></script>
+   </body>
+</html>
